@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All’alba del Sabato Santo</title>
+
+<style>
+    body{
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.7;
+        margin:0;
+        background:#f5f5f5;
+        color:#222;
+    }
+
+    header{
+        background:#3c4a6b;
+        color:white;
+        padding:30px 20px;
+        text-align:center;
+    }
+
+    main{
+        max-width:900px;
+        margin:auto;
+        background:white;
+        padding:40px;
+        box-shadow:0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1,h2{
+        color:#3c4a6b;
+    }
+
+    h2{
+        margin-top:60px;
+        border-bottom:2px solid #ddd;
+        padding-bottom:10px;
+    }
+
+    .preghiera{
+        background:#f0f4ff;
+        padding:15px;
+        border-left:4px solid #3c4a6b;
+        margin:20px 0;
+    }
+
+    .testimonianza{
+        background:#fff7e6;
+        padding:15px;
+        border-left:4px solid #e2a300;
+        margin:20px 0;
+        font-style:italic;
+    }
+
+    .canto{
+        background:#eef8ee;
+        padding:15px;
+        border-left:4px solid #4caf50;
+        margin:20px 0;
+    }
+
+    footer{
+        text-align:center;
+        padding:30px;
+        color:#666;
+    }
+
+    /* Controlli dimensione testo */
+    .font-controls{
+        position:fixed;
+        top:15px;
+        right:15px;
+        background:white;
+        padding:10px;
+        border-radius:10px;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .font-controls button{
+        font-size:18px;
+        margin:3px;
+        padding:6px 10px;
+        cursor:pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="font-controls">
+    <button onclick="changeFont(-1)">A−</button>
+    <button onclick="changeFont(1)">A+</button>
+</div>
+
+<header>
+    <h1>ALL’ALBA DEL SABATO SANTO</h1>
+    <p>Marcia interparrocchiale animata dai giovani – 4 aprile 2026</p>
+</header>
+
+<main>
+
+<h2>Introduzione</h2>
+<p>
+All’alba del Sabato Santo ci mettiamo in cammino. È un tempo di attesa, di silenzio, ma anche di speranza...
+</p>
+
+<div class="preghiera">
+<strong>SACERDOTE:</strong> Preghiamo.<br>
+Dio onnipotente, che al tuo popolo hai rivelato le vie della vita eterna...<br>
+<strong>TUTTI:</strong> Amen.
+</div>
+
+<h2>Primo momento – La pace è disarmata</h2>
+<p><strong>Dal Vangelo secondo Luca (23,20-25)</strong></p>
+<p>Pilato parlò loro di nuovo, perché voleva rimettere in libertà Gesù...</p>
+
+<div class="testimonianza">
+<strong>Salah, accusato ingiustamente</strong><br>
+Mi chiamo Salah. Quando hanno deciso per me...
+</div>
+
+<div class="canto">
+<strong>Canto: Vieni e seguimi</strong><br>
+Lascia che il mondo vada per la sua strada...
+</div>
+
+<h2>Secondo momento – La pace è rispetto</h2>
+<p><strong>Dal Vangelo secondo Matteo (27,27-31)</strong></p>
+<p>Allora i soldati del governatore condussero Gesù nel pretorio...</p>
+
+<div class="testimonianza">
+<strong>Maria, donna vittima di violenza</strong><br>
+Sono Maria. La mia croce non si vede...
+</div>
+
+<!-- 👉 Qui continua con lo stesso schema per tutti i momenti -->
+
+<p><em>Inserisci nello stesso modo tutti gli altri momenti fino al Decimo.</em></p>
+
+</main>
+
+<footer>
+Pagina realizzata per la Marcia del Sabato Santo
+</footer>
+
+<script>
+let currentSize = 18;
+document.body.style.fontSize = currentSize + "px";
+
+function changeFont(step){
+    currentSize += step;
+    if(currentSize < 14) currentSize = 14;
+    if(currentSize > 28) currentSize = 28;
+    document.body.style.fontSize = currentSize + "px";
+}
+</script>
+
+</body>
+</html>

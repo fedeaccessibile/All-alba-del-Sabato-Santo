@@ -1,162 +1,281 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>All’alba del Sabato Santo</title>
-
-<style>
-    body{
-        font-family: Georgia, "Times New Roman", serif;
-        line-height: 1.7;
-        margin:0;
-        background:#f5f5f5;
-        color:#222;
-    }
-
-    header{
-        background:#3c4a6b;
-        color:white;
-        padding:30px 20px;
-        text-align:center;
-    }
-
-    main{
-        max-width:900px;
-        margin:auto;
-        background:white;
-        padding:40px;
-        box-shadow:0 0 15px rgba(0,0,0,0.1);
-    }
-
-    h1,h2{
-        color:#3c4a6b;
-    }
-
-    h2{
-        margin-top:60px;
-        border-bottom:2px solid #ddd;
-        padding-bottom:10px;
-    }
-
-    .preghiera{
-        background:#f0f4ff;
-        padding:15px;
-        border-left:4px solid #3c4a6b;
-        margin:20px 0;
-    }
-
-    .testimonianza{
-        background:#fff7e6;
-        padding:15px;
-        border-left:4px solid #e2a300;
-        margin:20px 0;
-        font-style:italic;
-    }
-
-    .canto{
-        background:#eef8ee;
-        padding:15px;
-        border-left:4px solid #4caf50;
-        margin:20px 0;
-    }
-
-    footer{
-        text-align:center;
-        padding:30px;
-        color:#666;
-    }
-
-    /* Controlli dimensione testo */
-    .font-controls{
-        position:fixed;
-        top:15px;
-        right:15px;
-        background:white;
-        padding:10px;
-        border-radius:10px;
-        box-shadow:0 0 10px rgba(0,0,0,0.2);
-    }
-
-    .font-controls button{
-        font-size:18px;
-        margin:3px;
-        padding:6px 10px;
-        cursor:pointer;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All'Alba del Sabato Santo</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 20px;
+            font-size: 18px; /* Dimensione base accessibile */
+            transition: font-size 0.3s ease;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #4a2333; /* Colore sobrio e liturgico */
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #4a2333;
+            margin-top: 30px;
+            font-size: 1.3em;
+        }
+        h3 {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        .controls button {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .controls button:hover {
+            background-color: #e2e6ea;
+        }
+        .momento {
+            margin-top: 40px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+        .vangelo {
+            font-style: italic;
+            color: #444;
+            border-left: 4px solid #4a2333;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+            padding: 15px;
+        }
+        .riflessione {
+            text-align: justify;
+        }
+        .testimonianza {
+            background-color: #fff9f0;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #e6a817;
+        }
+        .testimonianza h4 {
+            margin-top: 0;
+            color: #b5810b;
+        }
+        .preghiera {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .canto {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px dashed #ccc;
+        }
+        .canto h4 {
+            margin-top: 0;
+            color: #555;
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="font-controls">
-    <button onclick="changeFont(-1)">A−</button>
-    <button onclick="changeFont(1)">A+</button>
-</div>
+    <div class="controls">
+        <button onclick="changeFontSize(2)" aria-label="Ingrandisci testo">A+</button>
+        <button onclick="changeFontSize(-2)" aria-label="Rimpicciolisci testo">A-</button>
+    </div>
 
-<header>
-    <h1>ALL’ALBA DEL SABATO SANTO</h1>
-    <p>Marcia interparrocchiale animata dai giovani – 4 aprile 2026</p>
-</header>
+    <div class="container">
+        <h1>ALL'ALBA DEL SABATO SANTO [cite: 1]</h1>
+        <h2 style="text-align: center;">MARCIA INTERPARROCCHIALE ANIMATA DAI GIOVANI [cite: 2]</h2>
+        <h3 style="text-align: center;">4 APRILE 2026 [cite: 3]</h3>
 
-<main>
+        <h2>INTRODUZIONE [cite: 4]</h2>
+        <div class="riflessione">
+            <p>All'alba del Sabato Santo ci mettiamo in cammino. È un tempo di attesa, di silenzio, ma anche di speranza. [cite: 5] È il momento in cui sembra che tutto sia fermo, eppure qualcosa di nuovo sta già nascendo. [cite: 6] Ci incamminiamo seguendo Gesù, passo dopo passo, per imparare da Lui come costruire la pace nelle scelte quotidiane e con relazioni autentiche. [cite: 7] Viviamo questa marcia facendoci vicini a tutti coloro che non sono in pace con se stessi, con gli altri, con il creato e con Dio, e ai popoli che soffrono a causa delle guerre. [cite: 8] Saremo accompagnati dalla Parola, luce sul nostro cammino, e da compagni e compagne di strada che, attraverso le loro testimonianze, ci insegnano a fare passi di pace. [cite: 9] Percorriamo con Gesù questo cammino perché con Lui possiamo essere portatori di pace, lasciandoci guidare dalla sua Parola. [cite: 10]</p>
+        </div>
+        
+        <div class="preghiera">
+            <p><span class="bold">SACERDOTE:</span> Preghiamo. [cite: 11]<br>
+            Dio onnipotente, che al tuo popolo hai rivelato le vie della vita eterna, fa' che percorrendole giunga fino a te, luce senza tramonto. [cite: 12]<br>
+            Per Cristo nostro Signore. [cite: 13]<br>
+            <span class="bold">TUTTI:</span> Amen. [cite: 14]</p>
+        </div>
 
-<h2>Introduzione</h2>
-<p>
-All’alba del Sabato Santo ci mettiamo in cammino. È un tempo di attesa, di silenzio, ma anche di speranza...
-</p>
+        <div class="momento">
+            <h2>PRIMO MOMENTO [cite: 15]</h2>
+            <h3>Dal Vangelo secondo Luca (23, 20-25) [cite: 16]</h3>
+            <div class="vangelo">
+                <p>Pilato parlò loro di nuovo, perché voleva rimettere in libertà Gesù. Ma essi urlavano: "Crocifiggilo! Crocifiggilo!". [cite: 17] Ed egli, per la terza volta, disse loro: "Ma che male ha fatto costui? Non ho trovato in lui nulla che meriti la morte. Dunque, lo punirò e lo rimetterò in libertà". [cite: 18] Essi però insistevano a gran voce, chiedendo che venisse crocifisso, e le loro grida crescevano. [cite: 19] Pilato allora decise che la loro richiesta venisse eseguita. [cite: 20] Rimise in libertà colui che era stato messo in prigione per rivolta e omicidio, e che essi richiedevano, e consegnò Gesù al loro volere. [cite: 21]</p>
+            </div>
+            
+            <div class="riflessione">
+                <p><span class="bold">La pace è disarmata. [cite: 22]</span></p>
+                <p>Dinanzi al momento più difficile della sua vita terrena, Gesù si mostra disarmato. [cite: 23] Affronta l'arresto, il processo, la passione e la sua morte senza armi. [cite: 24] Avrebbe potuto usare l'arma del suo potere onnipotente e far terminare quel momento oppure avrebbe usato l'arma delle parole per smentire le accuse e magari far cambiare idea a Pilato o a coloro che volevano a tutti i costi crocifiggerlo. [cite: 25] Gesù resta in silenzio, tace, costruisce la pace e la riconciliazione senza usare le armi, facendosi ultimo tra gli ultimi, povero tra i più poveri. [cite: 26] È una scelta che probabilmente non condividiamo e che non avremmo mai fatto se ci fossimo trovati in quella condizione ed anche in altre condizioni molto meno gravi. [cite: 27] Il suo essere disarmato ci spiazza e ci provoca in maniera forte. [cite: 28] Lasciamoci provocare dalla pace disarmata del Signore condannato a morte ingiustamente. [cite: 29]</p>
+            </div>
 
-<div class="preghiera">
-<strong>SACERDOTE:</strong> Preghiamo.<br>
-Dio onnipotente, che al tuo popolo hai rivelato le vie della vita eterna...<br>
-<strong>TUTTI:</strong> Amen.
-</div>
+            <div class="testimonianza">
+                <h4>Salah, accusato ingiustamente [cite: 31]</h4>
+                <p>Mi chiamo Salah. Quando hanno deciso per me, non ho capito tutte le parole, ma ho capito che la pace mi era stata tolta. [cite: 32] Non ero una persona: ero un problema. [cite: 33] Gesù, tu stai davanti a me senza difenderti, non per rassegnazione ma per non alimentare altro male. [cite: 34] Nel tuo silenzio scopro che la pace non è vincere una causa, ma evitare che l'ingiustizia si trasformi in odio. [cite: 35]</p>
+            </div>
 
-<h2>Primo momento – La pace è disarmata</h2>
-<p><strong>Dal Vangelo secondo Luca (23,20-25)</strong></p>
-<p>Pilato parlò loro di nuovo, perché voleva rimettere in libertà Gesù...</p>
+            <div class="preghiera">
+                <p>Preghiamo insieme e diciamo: Disarmaci, Signore. [cite: 36]<br>
+                <span class="bold">TUTTI:</span> Disarmaci, Signore. [cite: 37]<br>
+                Quando veniamo colpiti nel nostro orgoglio. - Disarmaci, Signore. [cite: 38]<br>
+                Quando affrontiamo situazioni nuove. - Disarmaci, Signore. [cite: 39]<br>
+                Quando non vengono accolte le idee e le nostre scelte. - Disarmaci, Signore. [cite: 40]</p>
+            </div>
 
-<div class="testimonianza">
-<strong>Salah, accusato ingiustamente</strong><br>
-Mi chiamo Salah. Quando hanno deciso per me...
-</div>
+            <div class="canto">
+                <h4>CANTO: Vieni e seguimi [cite: 41]</h4>
+                <p>Lascia che il mondo vada per la sua strada. Lascia che l'uomo ritorni alla sua casa. [cite: 42]<br>
+                Lascia che la gente accumuli la sua fortuna. Ma tu, tu vieni e seguimi, tu vieni e seguimi. [cite: 43]<br>
+                Lascia che la barca in mare spieghi la vela. Lascia che trovi affetto chi segue il cuore. [cite: 44]<br>
+                Lascia che dall'albero cadano i frutti maturi. Ma tu, tu vieni e seguimi, tu vieni e seguimi. [cite: 45]<br>
+                E sarai luce per gli uomini [cite: 46]<br>
+                e sarai sale della terra [cite: 47]<br>
+                e nel mondo deserto aprirai [cite: 48]<br>
+                una strada nuova. (2v) [cite: 49]</p>
+            </div>
+        </div>
 
-<div class="canto">
-<strong>Canto: Vieni e seguimi</strong><br>
-Lascia che il mondo vada per la sua strada...
-</div>
+        <div class="momento">
+            <h2>SECONDO MOMENTO [cite: 50]</h2>
+            <h3>Dal Vangelo secondo Matteo (27,27-31) [cite: 51]</h3>
+            <div class="vangelo">
+                <p>Allora i soldati del governatore condussero Gesù nel pretorio e gli radunarono attorno tutta la truppa. [cite: 52] Lo spogliarono, gli fecero indossare un mantello scarlatto, intrecciarono una corona di spine, gliela posero sul capo e gli misero una canna nella mano destra. [cite: 53] Poi, inginocchiandosi davanti a lui, lo deridevano: "Salve, re dei Giudei!" [cite: 54] Sputandogli addosso, gli tolsero di mano la canna e lo percuotevano sul capo. [cite: 55] Dopo averlo deriso, lo spogliarono del mantello e gli rimisero le sue vesti, poi lo condussero via per crocifiggerlo. [cite: 56]</p>
+            </div>
 
-<h2>Secondo momento – La pace è rispetto</h2>
-<p><strong>Dal Vangelo secondo Matteo (27,27-31)</strong></p>
-<p>Allora i soldati del governatore condussero Gesù nel pretorio...</p>
+            <div class="riflessione">
+                <p><span class="bold">La pace è rispetto. [cite: 57]</span></p>
+                <p>Spesso, per ragioni diverse, giustifichiamo il male, magari lo consideriamo come qualcosa di normale. [cite: 58] Molte volte, a causa della nostra indifferenza non solo giustifichiamo il male, ma addirittura rendiamo invisibile il male che, soprattutto quelli che non contano, ricevono. [cite: 59] Rendendo invisibile il male che ricevono rendiamo invisibili queste persone. [cite: 60] Sono vittime per due volte: vittime per il male che toglie dignità e rispetto, vittime perché resi invisibili. [cite: 61] I poveri delle nostre città sono invisibili, magari maltrattati e non rispettati. [cite: 62] I popoli in guerre completamente dimenticate o addirittura mai conosciute sono invisibili per l'opinione di chi crede di contare qualcosa. [cite: 64] Queste persone sono davvero segno di Cristo, segno attraverso il quale oggi ci parla e ci invita a costruire la pace partendo non dai trattati, pur necessari, ma dalla dignità di ognuno. [cite: 65]</p>
+            </div>
 
-<div class="testimonianza">
-<strong>Maria, donna vittima di violenza</strong><br>
-Sono Maria. La mia croce non si vede...
-</div>
+            <div class="testimonianza">
+                <h4>Maria, donna vittima di violenza [cite: 66]</h4>
+                <p>Sono Maria. La mia croce non si vede, ma pesa ogni giorno. [cite: 67] L'ho presa senza volerlo, come te. [cite: 68] Mi hanno detto: "Sopporta, è normale". [cite: 69] Normale non è. Gesù, tu prendi la croce senza giustificare il male. [cite: 70] Con te capisco che la pace comincia quando smetto di chiamare amore ciò che amore non è. [cite: 71]</p>
+            </div>
 
-<!-- 👉 Qui continua con lo stesso schema per tutti i momenti -->
+            <div class="preghiera">
+                <p>Preghiamo insieme e diciamo: Rendici attenti, Signore. [cite: 72]<br>
+                <span class="bold">TUTTI:</span> Rendici attenti, Signore. [cite: 73]<br>
+                Di fronte agli invisibili e scartati della nostra comunità. - Rendici attenti, Signore. [cite: 74]<br>
+                Di fronte a coloro che non contano nella nostra città. - Rendici attenti, Signore. [cite: 75]<br>
+                Di fronte ai popoli in guerra non considerati nei nostri dibattiti. - Rendici attenti, Signore. [cite: 76]</p>
+            </div>
+        </div>
 
-<p><em>Inserisci nello stesso modo tutti gli altri momenti fino al Decimo.</em></p>
+        <div class="momento">
+            <h2>TERZO MOMENTO [cite: 77]</h2>
+            <h3>Dal Vangelo secondo Marco (15,20-21) [cite: 78]</h3>
+            <div class="vangelo">
+                <p>Dopo essersi fatti beffe di lui, lo spogliarono della porpora e gli fecero indossare le sue vesti, poi lo condussero fuori per crocifiggerlo. [cite: 79] Costrinsero a portare la sua croce un tale che passava, un certo Simone di Cirene, che veniva dalla campagna, padre di Alessandro e di Rufo. [cite: 80]</p>
+            </div>
 
-</main>
+            <div class="riflessione">
+                <p><span class="bold">La pace è cammino insieme. [cite: 81]</span></p>
+                <p>Non camminiamo da soli nel nostro pellegrinaggio terreno. Per questa ragione non possiamo pensare che la pace si possa costruire con cammini solitari, cammini che non si incontrano mai. [cite: 82] Il cireneo è un segno di un uomo che si è trovato a fare un pezzo di strada con Gesù portando la croce. [cite: 83] Viene costretto a portare la croce, non ha fatto una scelta volontaria, ma contribuisce ad una storia di amore apportatrice di pace. [cite: 84] Nella vita, spesso, ci troviamo a dover fare un cammino con altri costretti dal contesto, dalle situazioni, da imprevisti. [cite: 85] Quando scegliamo di portare la croce con altri, quando ci convertiamo da una vita isolata ad una vita di relazioni, quando obbediamo alla vita che ci chiede di essere con altri e aiutarci vicendevolmente, allora la via della croce diventa via della pace, allora il carico pesante si fa leggero. [cite: 86] [cite: 87]</p>
+            </div>
 
-<footer>
-Pagina realizzata per la Marcia del Sabato Santo
-</footer>
+            <div class="testimonianza">
+                <h4>Abdul Muazzin, migrante [cite: 88]</h4>
+                <p>Mi chiamo Abdul Muazzin. [cite: 89] Non avevo scelto di aiutare, volevo solo passare oltre. [cite: 90] Poi la vita mi ha costretto a fermarmi. [cite: 91] Ho portato pesi non miei, ma non inutili. [cite: 92] Gesù, tu non mi hai chiesto il permesso: mi hai reso parte della tua storia. [cite: 93] E da quel giorno, camminare con gli altri è il mio modo di costruire la pace. [cite: 94]</p>
+            </div>
 
-<script>
-let currentSize = 18;
-document.body.style.fontSize = currentSize + "px";
+            <div class="preghiera">
+                <p>Preghiamo insieme e diciamo: Aiutaci a camminare insieme, Signore. [cite: 96]<br>
+                <span class="bold">TUTTI:</span> Aiutaci a camminare insieme, Signore.<br>
+                Quando siamo tentati di fare tutto da soli. - Aiutaci a camminare insieme, Signore [cite: 97]<br>
+                Quando siamo tentati dall'indifferenza. - Aiutaci a camminare insieme, Signore [cite: 98]<br>
+                Quando la lamentela sembra che stia prendendo il posto dell'amore. - Aiutaci a camminare insieme, Signore [cite: 99]</p>
+            </div>
 
-function changeFont(step){
-    currentSize += step;
-    if(currentSize < 14) currentSize = 14;
-    if(currentSize > 28) currentSize = 28;
-    document.body.style.fontSize = currentSize + "px";
-}
-</script>
+            <div class="canto">
+                <h4>CANTO: Semina la pace [cite: 100]</h4>
+                <p>Senti il cuore della tua città:<br>
+                batte nella notte intorno a te<br>
+                sembra una canzone muta che<br>
+                cerca un'alba di serenità. [cite: 101]<br>
+                Semina la pace e tu vedrai<br>
+                che la tua speranza rivivrà<br>
+                spine tra le mani piangerai<br>
+                ma un mondo nuovo nascerà. [cite: 102]<br>
+                Sì, nascerà il mondo della pace,<br>
+                di guerra non si parlerà mai più. [cite: 103]<br>
+                La pace è un dono che la vita ci darà,<br>
+                un sogno che si avvererà. [cite: 104]</p>
+            </div>
+        </div>
 
-</body>
-</html>
+        <div class="momento">
+            <h2>QUARTO MOMENTO [cite: 105]</h2>
+            <h3>Dalla prima Lettera di san Pietro apostolo (2,21-24) [cite: 106]</h3>
+            <div class="vangelo">
+                <p>Cristo pati per voi, lasciandovi un esempio, perché ne seguiate le orme: egli non commise peccato e non si trovò inganno sulla sua bocca; [cite: 107] insultato, non rispondeva con insulti, maltrattato, non minacciava vendetta, ma si affidava a colui che giudica con giustizia. [cite: 108] Egli portò i nostri peccati nel suo corpo sul legno della croce, perché, non vivendo più per il peccato, vivessimo per la giustizia; [cite: 109] dalle sue piaghe siete stati guariti. [cite: 110]</p>
+            </div>
+
+            <div class="riflessione">
+                <p><span class="bold">La pace è disarmante. [cite: 111]</span></p>
+                <p>La passione e la morte del Signore ci raccontano la pace che non si impone, una pace che lascia senza parole, una pace che non nasce da violenza, una pace che non è frutto di una guerra preparata. [cite: 112] È lo stile di Dio: Egli non si impone, non schiaccia, non opprime, non risponde al male con il male. [cite: 113] Questo stile ci disarma davvero, ci lascia a bocca aperta, ci fa cogliere davvero uno stile controcorrente rispetto alla nostra mentalità. [cite: 114] È uno stile profetico che ci fa intravedere cieli nuovi e terra nuova, apre il nostro sguardo e ci dona speranza. [cite: 115] È lo stile che siamo chiamati ad accogliere con scelte coraggiose. [cite: 116] Si, perché la non violenza è frutto del coraggio, è frutto di chi si mette nelle mani di Dio e sa di non restare deluso. [cite: 117]</p>
+            </div>
+
+            <div class="testimonianza">
+                <h4>Carlo, vittima del gioco d'azzardo [cite: 118]</h4>
+                <p>Mi chiamo Carlo. Sono caduto più di una volta. [cite: 119] La seconda fa più male della prima, perché sai già cosa ti aspetta. Promesse, bugie, solitudine. [cite: 120] Gesù, tu cadi ancora e non smetti di camminare. Forse la pace non è non cadere, ma non smettere di tornare alla verità. [cite: 121]</p>
+            </div>
+
+            <div class="preghiera">
+                <p>Preghiamo insieme e diciamo: Illuminaci, Signore. [cite: 123]<br>
+                <span class="bold">TUTTI:</span> Illuminaci, Signore [cite: 124]<br>
+                Quando siamo tentati dalla mania del controllo. - Illuminaci, Signore [cite: 125]<br>
+                Quando siamo tentati dalla mania dell'onnipotenza. - Illuminaci, Signore [cite: 126]<br>
+                Quando siamo tentati di andare alla ricerca di un Dio forte che sistemi ogni situazione e non riconosciamo la tua onnipotenza nella misericordia. - Illuminaci, Signore [cite: 127]</p>
+            </div>
+        </div>
+
+        <div class="momento">
+            <h2>QUINTO MOMENTO [cite: 128]</h2>
+            <h3>Dal Libro del profeta Isaia (53,5-7) [cite: 129]</h3>
+            <div class="vangelo">
+                <p>Egli è stato trafitto per le nostre colpe, schiacciato per le nostre iniquità. [cite: 130] Il castigo che ci dà salvezza si è abbattuto su di lui; per le sue piaghe noi siamo stati guariti. [cite: 131] Noi tutti eravamo sperduti come un gregge, ognuno di noi seguiva la sua strada; [cite: 132] il Signore fece ricadere su di lui l'iniquità di noi tutti. [cite: 133] Maltrattato, si lasciò umiliare e non apri la sua bocca; [cite: 134] era come agnello condotto al macello, come pecora muta di fronte ai suoi tosatori, e non apri la sua bocca. [cite: 135]</p>
+            </div>
+
+            <div class="riflessione">
+                <p><span class="bold">La pace è guarigione [cite: 136]</span></p>
+                <p>Il cammino della pace è percorso di guarigione. Accogliendo queste parole di Isaia che prefigurano la passione del Signore, si può avere l'impressione della descrizione di una sconfitta, di torti subiti, di passività e inconsistenza dell'intervento di Dio. [cite: 137] L'approccio di Gesù alle sue sofferenze è nella logica della guarigione, di cocci che si riparano più che di frammenti e scarti che si tende ad annientare ed eliminare. [cite: 138] Le sue piaghe vissute nella logica dell'amore ricostruiscono relazioni con Dio, tra noi e con l'intero creato. [cite: 139] Ci rendiamo conto, allora, che le sofferenze vissute nella non violenza non sono atti inutili e difficili sconfitte, ma fanno intravedere un mondo rinnovato, un mondo che risulta addirittura migliore rispetto alle nostre aspettative. [cite: 140]</p>

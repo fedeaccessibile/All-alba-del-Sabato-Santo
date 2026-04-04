@@ -459,4 +459,41 @@
             </div>
 
             <div class="canto">
-                
+                 <h4>CANTO: Dall'aurora al tramonto [cite: 302]</h4>
+                <p>Dall'aurora io cerco te [cite: 303]<br>
+                fino al tramonto ti chiamo,<br>
+                ha sete solo di te l'anima mia<br>
+                come terra deserta. [cite: 304]<br>
+                Non mi fermero' un solo istante,<br>
+                sempre cantero' la tua lode<br>
+                perche' sei il mio Dio il mio riparo,<br>
+                mi proteggerai all'ombra delle tue ali. [cite: 305]<br>
+                Dall'aurora io cerco te [cite: 306]<br>
+                fino al tramonto ti chiamo,<br>
+                ha sete solo di te l'anima mia<br>
+                come terra deserta. [cite: 307]</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentFontSize = 18; // Inizia con la grandezza definita nel CSS
+
+        function changeFontSize(step) {
+            currentFontSize += step;
+            
+            // Imposta dei limiti minimi e massimi per evitare di rompere il layout
+            if(currentFontSize < 14) {
+                currentFontSize = 14;
+            }
+            if(currentFontSize > 36) {
+                currentFontSize = 36;
+            }
+            
+            // Applica la nuova grandezza a tutto il body
+            document.body.style.fontSize = currentFontSize + 'px';
+        }
+    </script>
+</body>
+</html>
